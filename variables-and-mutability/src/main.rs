@@ -1,6 +1,9 @@
 // Constants
 const TAX_RATE: f64 = 0.08;
 
+// Type Alias
+type Meters = i32;
+
 fn main() {
   // Variables
   let apples = 50;
@@ -35,4 +38,17 @@ fn main() {
     println!("The price of coffee is {coffee_price}.");
   }
 
+  // Constants Usage & Explicit Type Declaration
+  let income: i32 = 100000;
+  println!("The income is {income} and my tax rate is {TAX_RATE}.");
+
+  // Type Alias Usage
+  let mile_race_length: Meters = 1600;
+  let two_mile_race_length: Meters = mile_race_length * 2;
+
+  println!("A one mile race is {mile_race_length} meters long and a two mile race is {two_mile_race_length} long.");
+
+  // Compiler Directives
+  #[allow(unused_variables)]
+  let unused_meters: Meters = 100;
 }
