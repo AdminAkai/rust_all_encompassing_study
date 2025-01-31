@@ -30,3 +30,32 @@ println!("{:?}", alphabets("aardvark")); -> (true, false)
 println!("{:?}", alphabets("zoology"));  -> (false, true)
 println!("{:?}", alphabets("zebra"));    -> (true, true)
 */
+
+fn main() {
+    apply_to_jobs(27, "Senior Fullstack Engineer");
+    let is_even_number = is_even(20);
+    let is_odd_number = is_odd(21);
+    println!("Is 20 even? {is_even_number}");
+    println!("Is 21 odd? {is_odd_number}");
+
+    let (contains_a, contains_z) = alphabets("aardvark");
+    println!("{:?}", (contains_a, contains_z));
+}
+
+fn apply_to_jobs(number: i32, title: &str) {
+    println!("I'm applying to {number} {title} jobs");
+}
+
+fn is_even(number: i32) -> bool {
+    number % 2 == 0
+}
+
+fn is_odd(number: i32) -> bool {
+    number % 2 != 0
+}
+
+fn alphabets(text: &str) -> (bool, bool) {
+    let contains_a = text.contains('a');
+    let contains_z = text.contains('z');
+    (contains_a, contains_z)
+}

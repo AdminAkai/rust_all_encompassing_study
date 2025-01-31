@@ -27,3 +27,58 @@ Implement two solutions/functions for the problem.
 The first solution should not use recursion.
 The second solution should use recursion.
 */
+
+fn main() {
+    let color_number = color_to_number("red");
+    println!("Color number: {color_number}");
+
+    let color_number_matcher = color_to_number_matcher("green");
+    println!("Color number matcher: {color_number_matcher}");
+
+    let factorial = factorial_function(5);
+    println!("Factorial: {factorial}");
+
+    let factorial_recursive = factorial_function_recursive(4);
+    println!("Factorial recursive: {factorial_recursive}");
+}
+
+fn color_to_number(color: &str) -> i32 {
+    if color == "red" {
+        return 1;
+    } else if color == "green" {
+        return 2;
+    } else if color == "blue" {
+        return 3;
+    } else {
+        return 0;
+    }
+}
+
+fn color_to_number_matcher(color: &str) -> i32 {
+    match color {
+        "red" => 1,
+        "green" => 2,
+        "blue" => 3,
+        _ => 0,
+    }
+}
+
+fn factorial_function(number: i32) -> i32 {
+    let mut baseline = 1;
+    let mut result = 1;
+
+    while baseline <= number {
+        result *= baseline;
+        baseline += 1;
+    }
+
+    result
+}
+
+fn factorial_function_recursive(number: i32) -> i32 {
+    if number == 1 {
+        return 1;
+    }
+
+    number * factorial_function_recursive(number - 1)
+}

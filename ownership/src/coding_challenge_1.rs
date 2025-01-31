@@ -27,3 +27,28 @@ Say we want to keep the String around after `eat_meal` is
 called. How can we continue to have access to the String in
 the `main` function? Print out the (empty) String.
 */
+
+fn main() {
+    let is_concert = true;
+    let is_event = is_concert;
+    println!("Is concert: {is_concert}"); // this will still print
+    println!("Is event: {is_event}"); // ownership is not moved, Booleans implement the Copy trait
+
+    let sushi = "Salmon";
+    let dinner = sushi;
+    println!("Sushi: {sushi}"); // this will still print
+    println!("Dinner: {dinner}"); // ownership is not moved, string literals implement the Copy trait
+
+    let sushi = String::from("Salmon");
+    let dinner = sushi;
+    // println!("Sushi: {sushi}"); // this will no longer  print
+    println!("Dinner: {dinner}"); // ownership is moved, string do NOT implement the Copy trait
+
+    let eaten = eat_meal(dinner); // ownership of the "Salmon" String moves to the eat_meal function
+    println!("Eaten: {eaten}"); // eaten is assigned ownership of the String, this will print an empty string
+}
+
+fn eat_meal(mut meal: String) -> String {
+    meal.clear();
+    meal
+}

@@ -26,3 +26,27 @@ Declare a tuple consisting of the integer, float,
 a Boolean, and the array that you previously declared.
 Print out the tuple in its Debug representation.
 */
+
+fn main() {
+    let value: i32 = 1337;
+    let value_i16: i16 = value as i16;
+    println!("Value: {value}");
+    println!("Value i16: {value_i16}");
+
+    let pi: f32 = 3.14159;
+    println!("{pi:.3}");
+
+    let with_milk: bool = true;
+    let with_sugar: bool = true;
+
+    let is_my_type_of_coffee: bool = with_milk && with_sugar;
+    let is_acceptable_coffee: bool = with_milk || with_sugar;
+    println!("Is my type of coffee: {is_my_type_of_coffee}");
+    println!("Is acceptable coffee: {is_acceptable_coffee}");
+
+    let array: [i8; 4] = [1, 2, 3, 4];
+    println!("Array: {array:?}");
+
+    let tuple: (i32, f32, bool, [i8; 4]) = (value, pi, is_my_type_of_coffee, array);
+    println!("Tuple: {tuple:?}");
+}
